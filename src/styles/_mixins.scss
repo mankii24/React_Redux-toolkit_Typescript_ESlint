@@ -1,0 +1,42 @@
+@import './variables';
+
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin bordered($color, $width) {
+    border: $width solid $color;
+}
+
+// Breakpoints
+@mixin smMinBreakPoint {
+    @media (min-width: #{$screen-sm}) {
+        @content;
+    }
+}
+
+@mixin mdMinBreakPoint {
+    @media (min-width: #{$screen-md}) {
+        @content;
+    }
+}
+
+@mixin lgMinBreakPoint {
+    @media (min-width: #{$screen-lg}) {
+        @content;
+    }
+}
+
+@mixin xlMinBreakPoint {
+    @media (min-width: #{$screen-xl}) {
+        @content;
+    }
+}
+
+@mixin xxlMinBreakPoint {
+    @media (min-width: #{$screen-xxl}) {
+        @content;
+    }
+}

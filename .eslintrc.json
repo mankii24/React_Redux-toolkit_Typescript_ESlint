@@ -1,0 +1,63 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "eslint-config-prettier"
+  ],
+  "parser": "@typescript-eslint/parser", // Specifies the ESLint parser
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": false,
+      "arrowFunctions": true
+    }
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier", "react-hooks"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "paths": ["./src"]
+      }
+    }
+  },
+  "rules": {
+    "comma-dangle": "off",
+    "function-paren-newline": "off",
+    "global-require": "off",
+    "import/no-dynamic-require": "off",
+    "no-inner-declarations": "off",
+    "class-methods-use-this": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/consistent-type-definitions": "error",
+    "arrow-body-style": ["error", "as-needed"],
+    "react/self-closing-comp": ["error", { "component": true, "html": true }],
+    "react-hooks/exhaustive-deps": "error",
+    "react/react-in-jsx-scope": 0,
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["../"]
+      }
+    ]
+  }
+}

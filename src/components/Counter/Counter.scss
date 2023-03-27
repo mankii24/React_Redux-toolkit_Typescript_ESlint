@@ -1,0 +1,13 @@
+
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.test1 {
+    color: $white;
+    background-color: $textLight1Color;
+    @include bordered($borderRedColor , 2px);
+}
+
+ul {
+    @include reset-list;
+}

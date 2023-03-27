@@ -10,16 +10,20 @@ const initialState: CounterState = {
   isLoad: false,
 };
 
-const userSuccess = (
+export const userSuccess = (
   state: { userList: UserList[] },
   action: UserListAction,
 ) => {
-  console.log(action);
+  // console.log(action);
   state.userList = action.payload;
 };
 
-const Userpending = (state: { isLoad: boolean }) => {
+export const UserPending = (state: { isLoad: boolean }) => {
   state.isLoad = true;
+};
+
+export const UserRejected = (state: { isLoad: boolean }) => {
+  state.isLoad = false;
 };
 
 export const counterSlice = createSlice({
@@ -38,10 +42,8 @@ export const counterSlice = createSlice({
   },
   extraReducers: (builder: Builder) => {
     builder.addCase(getUserList.fulfilled, userSuccess);
-    builder.addCase(getUserList.pending, Userpending);
-    builder.addCase(getUserList.rejected, (state: { isLoad: boolean }) => {
-      state.isLoad = false;
-    });
+    builder.addCase(getUserList.pending, UserPending);
+    builder.addCase(getUserList.rejected, UserRejected);
   },
 });
 

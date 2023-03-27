@@ -5,9 +5,9 @@ export interface UserList {
 }
 
 export interface UserListAction {
-  type: string;
+  type?: string;
   payload: UserList[];
-  meta: Meta;
+  meta?: Meta;
 }
 
 export interface CounterState {

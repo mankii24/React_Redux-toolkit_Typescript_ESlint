@@ -1,4 +1,9 @@
-import counterReducer, { increment, decrement } from './counterSlice';
+import counterReducer, {
+  increment,
+  decrement,
+  userSuccess,
+  UserRejected,
+} from './counterSlice';
 import { CounterState } from 'types/counter';
 
 describe('counter reducer', () => {
@@ -25,5 +30,15 @@ describe('counter reducer', () => {
   test('should handle decrement', () => {
     const actual = counterReducer(initialState, decrement());
     expect(actual.value).toEqual(-1);
+  });
+
+  test('should call userSuccess', () => {
+    userSuccess(initialState, { payload: [{ id: 1 }] });
+    expect(initialState.userList).toEqual([{ id: 1 }]);
+  });
+
+  test('should call UserRejected', () => {
+    UserRejected(initialState);
+    expect(initialState.isLoad).toEqual(false);
   });
 });

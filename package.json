@@ -16,9 +16,11 @@
     "env-cmd": "^10.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-loading-skeleton": "^3.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.2",
     "sass": "^1.59.3",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
@@ -33,7 +35,8 @@
     "test:coverage": "npm run test -- --coverage . --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "pre-commit": "npm run lint:fix && npm run test"
   },
   "eslintConfig": {
     "extends": [
@@ -65,8 +68,14 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
     "prettier": "^2.8.6",
     "prettier-eslint": "^15.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit"
+    }
   },
   "jest": {
     "moduleNameMapper": {
